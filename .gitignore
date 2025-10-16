@@ -1,0 +1,15 @@
+# Build artifacts
+target/
+bin/
+*.class
+*.war
+*.ear
+*.log
+
+# IDE junk
+.idea/
+.vscode/
+.settings/
+.project
+.classpath
+*.iml

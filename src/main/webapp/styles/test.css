@@ -1,0 +1,143 @@
+/* ===== THEME SUPPORT: Light (default) & Dark (.dark trên <html>) ===== */
+:root { color-scheme: light dark; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  /* Light (mặc định) */
+  background:
+    radial-gradient(1000px 500px at 85% -120px, rgba(51,94,234,0.06), transparent 60%),
+    radial-gradient(800px 450px at -200px 80%, rgba(255,215,0,0.06), transparent 60%),
+    #f5f7fb;
+  color: #111827;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+}
+
+/* Dark khi <html class="dark"> */
+.dark body {
+  background:
+    radial-gradient(1200px 600px at 85% -120px, rgba(51, 94, 234, 0.15), transparent 60%),
+    radial-gradient(900px 500px at -200px 80%, rgba(255, 215, 0, 0.10), transparent 60%),
+    #0b0f17;
+  color: #e5e7eb;
+}
+
+/* Khối nội dung trung tâm */
+.container {
+  max-width: 1100px;
+  margin: 40px auto 80px;
+  padding: 0 16px;
+}
+
+h1 { font-size: 28px; margin: 0 0 6px; font-weight: 700; }
+.sub { color: #6b7280; margin-bottom: 18px; }
+.dark .sub { color: #9ca3af; }
+
+/* Thanh công cụ */
+.toolbar {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 10px 12px; border-radius: 10px; margin-bottom: 16px;
+  backdrop-filter: blur(6px);
+}
+.toolbar select {
+  background: #fff;
+  color: #111827;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 6px 8px;
+  outline: none;
+}
+.toolbar select:hover { border-color: rgba(0,0,0,0.25); }
+.toolbar select:focus { box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.25); }
+
+/* Dark biến thể cho toolbar */
+.dark .toolbar {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.dark .toolbar select{
+  background: rgba(17,24,39,0.6);
+  color:#e5e7eb;
+  border:1px solid rgba(255,255,255,0.12);
+}
+.dark .toolbar select:hover { border-color: rgba(255,255,255,0.22); }
+
+/* Lưới thẻ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* Card */
+.card {
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  display: flex; flex-direction: column;
+}
+.dark .card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* Poster */
+.poster { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+
+/* Không có poster */
+.no-poster {
+  width: 100%; aspect-ratio: 3/4; display: grid; place-items: center;
+  background: rgba(0,0,0,0.05); color: #6b7280; font-size: 14px;
+}
+.dark .no-poster { background: rgba(255,255,255,0.06); color: #cbd5e1; }
+
+/* Meta */
+.meta { padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+.title { font-weight: 600; margin: 0; color: #111827; }
+.year { color: #6b7280; font-size: 13px; }
+.progress, .time { color: #6b7280; font-size: 13px; }
+.dark .title { color:#f3f4f6; }
+.dark .year, .dark .progress, .dark .time { color:#a7b0c0; }
+
+/* Hành động */
+.actions-row { display: flex; gap: 8px; margin-top: 8px; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 10px; border-radius: 9px; border: 1px solid transparent;
+  font-size: 14px; cursor: pointer; text-decoration: none;
+}
+.btn:hover { filter: brightness(1.03); }
+.btn.danger { background: #ef4444; color: #fff; border-color: #ef4444; }
+.btn.danger[type="submit"] { border: none; }
+
+/* Link bọc poster */
+.poster-link { color: inherit; text-decoration: none; }
+
+/* Trạng thái rỗng */
+.empty {
+  padding: 16px;
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+}
+.dark .empty {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Nút đổi theme nổi */
+.theme-fab{
+  position: fixed; right: 18px; bottom: 18px;
+  width: 44px; height: 44px; border-radius: 999px;
+  display: grid; place-items: center;
+  background: #facc15; color: #111827;
+  border: none; cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
+.theme-fab:hover{ filter: brightness(1.05); }
